@@ -56,7 +56,7 @@ document.querySelector('footer').innerHTML = content;
 
 
 
-
+/*
 filterSelection("all")
 
 function filterSelection(c) {
@@ -103,5 +103,48 @@ for (var i = 0; i < btns.length; i++) {
     var current = document.getElementsByClassName("active");
     current[0].className = current[0].className.replace(" active", "");
     this.className += " active";
+  });
+}
+*/
+
+
+
+
+function openNav() {
+  document.getElementById("myNav").style.height = "100%";
+}
+
+function closeNav() {
+  document.getElementById("myNav").style.height = "0%";
+}
+
+$(document.body).append('<div id="blurredContentFrame"><div id="blurredContent"></div></div>');
+
+$('#blurredContentFrame').css({
+  'width': $('#frostedBk').width(),
+  'height': $('#frostedBk').height()
+});
+
+$('#content').clone().appendTo('#blurredContent');
+
+sizeContent();
+positionBlur();
+
+function sizeContent() {
+  $('#blurredContent').css({
+    'width': $('#content').width(),
+    'height': $('#content').height()
+  });
+}
+
+function positionBlur() {
+  var offset = $('#frostedBk').offset();
+  $('#blurredContentFrame').css({
+    'left': offset.left,
+    'top': offset.top
+  });
+  $('#blurredContent').css({
+    'left': -offset.left,
+    'top': -offset.top
   });
 }
