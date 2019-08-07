@@ -1,9 +1,209 @@
 body {
-  font-family: 'Francois One', sans-serif;
-  font-size: 18px;
-  color: #555;
+  font-family: 'Helvetica', sans-serif;
+  font-weight: 900;
+  font-size: 12px;
+  color: rgb(70, 70, 70);
   background: #e5e5e5;
+  display: flex;
+  flex-flow: column nowrap;
 }
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+#header {
+  width: 500px;
+  max-width: 100%;
+  margin: 10px auto 0;
+  height: 50px;
+}
+
+#logo {
+  height: 40px;
+  width: auto;
+  margin: 1px 0 0 12px;
+  position: fixed;
+  z-index: 2;
+}
+
+#name{
+  margin: 12px 10px 0 0;
+  font-size: 16px;
+  float: right;
+}
+
+#projects {
+  width: 500px;
+  margin: 10px auto 0;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.project {
+  width: 45%;
+  padding: 10px 2.5% 20px;
+}
+
+.project-img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.project-details {
+  width: 45%;
+  padding: 0px 2.5% 20px;
+}
+
+
+@media only all and (max-width: 900px) {
+  #projects {
+      width: 500px;
+      max-width: 100%;
+  }
+
+  #header {
+    width: 500px;
+    max-width: 100%;
+}
+}
+
+#myNav {
+  width: 100%;
+  height: 0%;
+}
+
+img:hover {
+  cursor: pointer;
+}
+
+.overlay {
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  height: 100%;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+
+.overlay-content {
+  position: relative;
+  top: 25%;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.overlay .overlay-detail {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.overlay .overlay-detail:hover, .overlay .overlay-detail:focus {
+  color: #f1f1f1;
+}
+
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+}
+
+@media screen and (max-height: 450px) {
+  .overlay .overlay-detail {font-size: 20px}
+  .overlay .closebtn {
+  font-size: 40px;
+  top: 15px;
+  right: 35px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+#frostedBk {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 80px;
+  background: rgba(0, 0, 0, .5);
+  margin:0;
+  padding: 0;
+  z-index: 101;
+  box-sizing: border-box;
+  box-shadow: 0 2px 6px 1px rgba(0, 0, 0, .5), inset 0 0 150px  50px rgba(0, 0, 0, 1);
+  border-radius: 3px;
+  transition: background .2s;
+}
+#frostedBk:hover {
+  cursor: move;
+  background: rgba(0, 0, 0, .4);
+}
+#frostedBk p {
+  color: #fff;
+  position: absolute;
+  font-size: 13px;
+  letter-spacing: .05em;
+  bottom: 20px;
+  left: 0;
+  width: 100%;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 238px;
+  opacity: .8;
+  transition: all .2s;
+
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, .5);
+  transform: translate3d(0, 0, 0);
+}
+#frostedBk:hover p {
+  transform: translate3d(-3px, -3px, 0);
+  text-shadow: 5px 5px 6px rgba(0, 0, 0, .5);
+}
+#blurredContentFrame {
+  z-index: 100;
+  left:0;
+  top:0;
+  overflow: hidden;
+  position: absolute;
+}
+#blurredContent {
+  position: absolute;
+  filter:blur(8px);
+  -webkit-filter:blur(8px);
+}
+
+
+
+
+
+
+
+
+
+/*
+************************************************
+************************************************
+************************************************
+************************************************
+************************************************
 
 .logo {
   text-align: center;
@@ -116,12 +316,10 @@ p {
   display: none;
 }
 
-/* The "show" class is added to the filtered elements */
 .show {
   display: block;
 }
 
-/* Style the buttons */
 .btn {
 border: none;
 outline: none;
@@ -130,13 +328,17 @@ background-color: #f1f1f1;
 cursor: pointer;
 }
 
-/* Add a light grey background on mouse-over */
 .btn:hover {
 background-color: #ddd;
 }
 
-/* Add a dark background to the active button */
 .btn.active {
 background-color: #666;
 color: white;
 }
+************************************************
+************************************************
+************************************************
+************************************************
+************************************************
+*/
