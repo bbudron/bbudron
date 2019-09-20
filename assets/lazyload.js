@@ -7,6 +7,7 @@ if(path === 'index.html')
 else
     image = '<img src="../assets/images/bbudronGlitch.png" class="glitchLogo" alt="bbudron logo" width="80%" height="80%"/>';
 
+/*
 let content = `<div class="hamburger button js-menu__toggle">
             <button class="button hamburger__button js-menu__toggle">
                 <span class="hamburger__label">Open menu</span>
@@ -53,7 +54,7 @@ document.querySelector('footer').innerHTML = content;
       nodeMenuButton: nodeMenu.querySelector('.js-menu__toggle')
     });
   })();
-
+*/
 
 
 /*
@@ -109,7 +110,7 @@ for (var i = 0; i < btns.length; i++) {
 
 
 
-
+/*
 function openNav() {
   document.getElementById("myNav").style.height = "100%";
 }
@@ -148,3 +149,57 @@ function positionBlur() {
     'top': -offset.top
   });
 }
+*/
+
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  var lazyloadImages;    
+
+  if ("IntersectionObserver" in window) {
+    console.log("this shit lit\n");
+    lazyloadImages = document.querySelectorAll(".lazy");
+    var imageObserver = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          var image = entry.target;
+          image.src = image.dataset.src;
+          image.classList.remove("lazy");
+          imageObserver.unobserve(image);
+        }
+      });
+    });
+
+    lazyloadImages.forEach(function(image) {
+      imageObserver.observe(image);
+    });
+  } else {  
+    var lazyloadThrottleTimeout;
+    lazyloadImages = document.querySelectorAll(".lazy");
+    
+    function lazyload () {
+      if(lazyloadThrottleTimeout) {
+        clearTimeout(lazyloadThrottleTimeout);
+      }    
+
+      lazyloadThrottleTimeout = setTimeout(function() {
+        var scrollTop = window.pageYOffset;
+        lazyloadImages.forEach(function(img) {
+            if(img.offsetTop < (window.innerHeight + scrollTop)) {
+              img.src = img.dataset.src;
+              img.classList.remove('lazy');
+            }
+        });
+        if(lazyloadImages.length == 0) { 
+          document.removeEventListener("scroll", lazyload);
+          window.removeEventListener("resize", lazyload);
+          window.removeEventListener("orientationChange", lazyload);
+        }
+      }, 20);
+    }
+
+    document.addEventListener("scroll", lazyload);
+    window.addEventListener("resize", lazyload);
+    window.addEventListener("orientationChange", lazyload);
+  }
+})
