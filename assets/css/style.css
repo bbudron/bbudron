@@ -1,344 +1,169 @@
+/*
+    http://meyerweb.com/eric/tools/css/reset/ 
+    v2.0 | 20110126
+    License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
 body {
-  font-family: 'Helvetica', sans-serif;
-  font-weight: 900;
-  font-size: 12px;
-  color: rgb(70, 70, 70);
-  background: #e5e5e5;
-  display: flex;
-  flex-flow: column nowrap;
+    line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
 }
 
-p {
-  margin: 0;
-  padding: 0;
+* {
+    box-sizing: border-box;
 }
+
+/*
+    fonts
+*/
+
+@font-face {
+    font-family: 'Computerfont';
+    src: url(../fonts/Computerfont.ttf);
+}
+
+@font-face {
+    font-family: 'Mushroom';
+    src: url(../fonts/Mushroomfont2.ttf);
+}
+
+/*
+    layout
+*/
+
+body {
+    background: #e5e5e5;
+}
+
+#container {
+    width: 550px;
+    display: flex;
+    flex-flow: column wrap;
+    margin: 0 auto;
+    clear: both;
+}
+
+@media only all and (max-width: 600px) {
+    #container {
+        width: 470px;
+        max-width: 100%;
+    }
+}
+
+/*
+    header
+*/
 
 #header {
-  width: 500px;
-  max-width: 100%;
-  margin: 10px auto 0;
-  height: 50px;
+    display: flex;
+    flex-flow: row nowrap;
+    width: 550px;
+    height: auto;
 }
 
 #logo {
-  height: 40px;
-  width: auto;
-  margin: 1px 0 0 12px;
-  position: fixed;
-  z-index: 2;
+    position: fixed;
+    width: 40px;
+    display: block;
+    margin: 10px 0;
 }
 
-#name{
-  margin: 12px 10px 0 0;
-  font-size: 16px;
-  float: right;
+h1 {
+    font-family: 'Computerfont', sans-serif;
+    font-size: 24px;
+    color: black;
+    float: right;
+    margin: 25px 0 0 auto;
 }
+
+@media only all and (max-width: 600px) {
+    #header {
+        width: 470px;
+        max-width: 100%;
+    }
+}
+
+/*
+    projects
+*/
 
 #projects {
-  width: 500px;
-  margin: 10px auto 0;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
+    width: 480px;
+    margin: 10px auto 0;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
 }
 
 .project {
-  width: 45%;
-  padding: 10px 2.5% 20px;
+    width: 46%;
+    padding: 10px 2% 20px;
 }
 
 .project-img {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    background: rgb(193, 193, 224);
 }
 
 .project-details {
-  width: 45%;
-  padding: 0px 2.5% 20px;
+    width: 45%;
+    padding: 0px 2.5% 20px;
+    cursor: pointer;
 }
 
-
-@media only all and (max-width: 900px) {
-  #projects {
-      width: 500px;
-      max-width: 100%;
-  }
-
-  #header {
-    width: 500px;
-    max-width: 100%;
-}
+h2 {
+    font-family: 'Mushroom', sans-serif;
+    font-size: 14px;
 }
 
-#myNav {
-  width: 100%;
-  height: 0%;
+@media only all and (max-width: 600px) {
+    #projects {
+        width: 400px;
+        max-width: 100%;
+    }
 }
 
 img:hover {
-  cursor: pointer;
+    cursor: pointer;
 }
-
-.overlay {
-  width: 0;
-  position: fixed;
-  z-index: 1;
-  height: 100%;
-  top: 0;
-  left: 0;
-  overflow-x: hidden;
-  transition: 0.5s;
-}
-
-.overlay-content {
-  position: relative;
-  top: 25%;
-  width: 100%;
-  text-align: center;
-  margin-top: 30px;
-}
-
-.overlay .overlay-detail {
-  padding: 8px;
-  text-decoration: none;
-  font-size: 36px;
-  color: #818181;
-  display: block;
-  transition: 0.3s;
-}
-
-.overlay .overlay-detail:hover, .overlay .overlay-detail:focus {
-  color: #f1f1f1;
-}
-
-.overlay .closebtn {
-  position: absolute;
-  top: 20px;
-  right: 45px;
-  font-size: 60px;
-}
-
-@media screen and (max-height: 450px) {
-  .overlay .overlay-detail {font-size: 20px}
-  .overlay .closebtn {
-  font-size: 40px;
-  top: 15px;
-  right: 35px;
-  }
-}
-
-
-
-
-
-
-
-
-
-
-#frostedBk {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  left: 0;
-  top: 80px;
-  background: rgba(0, 0, 0, .5);
-  margin:0;
-  padding: 0;
-  z-index: 101;
-  box-sizing: border-box;
-  box-shadow: 0 2px 6px 1px rgba(0, 0, 0, .5), inset 0 0 150px  50px rgba(0, 0, 0, 1);
-  border-radius: 3px;
-  transition: background .2s;
-}
-#frostedBk:hover {
-  cursor: move;
-  background: rgba(0, 0, 0, .4);
-}
-#frostedBk p {
-  color: #fff;
-  position: absolute;
-  font-size: 13px;
-  letter-spacing: .05em;
-  bottom: 20px;
-  left: 0;
-  width: 100%;
-  text-transform: uppercase;
-  text-align: center;
-  margin-top: 238px;
-  opacity: .8;
-  transition: all .2s;
-
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, .5);
-  transform: translate3d(0, 0, 0);
-}
-#frostedBk:hover p {
-  transform: translate3d(-3px, -3px, 0);
-  text-shadow: 5px 5px 6px rgba(0, 0, 0, .5);
-}
-#blurredContentFrame {
-  z-index: 100;
-  left:0;
-  top:0;
-  overflow: hidden;
-  position: absolute;
-}
-#blurredContent {
-  position: absolute;
-  filter:blur(8px);
-  -webkit-filter:blur(8px);
-}
-
-
-
-
-
-
-
-
-
-/*
-************************************************
-************************************************
-************************************************
-************************************************
-************************************************
-
-.logo {
-  text-align: center;
-  width: 100%;
-  position: fixed;
-  margin-top: 5px;
-}
-
-#z1 {
-  z-index: 1;
-}
-
-#z2 {
-  z-index: 200;
-}
-
-#z3 {
-  z-index: 300;
-}
-
-.left {
-  text-align: left;
-  padding-left: 4px;
-}
-.right {
-  text-align: right;
-  padding-right: 4px;
-}
-
-.filters {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 10px;
-  margin: auto;
-  margin-top: 175px;
-  max-width: 800px;
-  position: relative;
-}
-
-.portfolio {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  grid-gap: 10px;
-  margin: 0 auto 30px;
-  margin-top: 20px;
-  max-width: 800px;
-  position: relative;
-}
-
-.article-img {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-}
-
-.article-title {
-  position: absolute;
-}
-
-.gallery {
-  display: grid;
-  grid-template-columns: (1,  1fr);
-  margin: auto;
-  margin-top: 175px;
-  max-width: 800px;
-  position: relative;
-}
-.gallery-img {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-}
-
-.video-container {
-  position: relative;
-  padding-bottom: 56.25%;
-  padding-top: 30px;
-  height: 0;
-  overflow: hidden;
-  margin-bottom: 20px;
-}
-
-.video-container iframe,
-.video-container object,
-.video-container embed {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-p { 
-  margin-bottom: 10px; 
-}
-
-.glitchLogo {
-  width: 350px;
-  position: static;
-  text-align: center;
-}
-
-.filterList {
-  margin-top: 175px;
-  position: absolute;
-  text-align: center;
-}
-
-.filterDiv {
-  display: none;
-}
-
-.show {
-  display: block;
-}
-
-.btn {
-border: none;
-outline: none;
-padding: 12px 16px;
-background-color: #f1f1f1;
-cursor: pointer;
-}
-
-.btn:hover {
-background-color: #ddd;
-}
-
-.btn.active {
-background-color: #666;
-color: white;
-}
-************************************************
-************************************************
-************************************************
-************************************************
-************************************************
-*/
