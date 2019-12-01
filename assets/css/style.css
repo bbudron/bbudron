@@ -53,20 +53,6 @@ table {
 }
 
 /*
-    fonts
-*/
-
-@font-face {
-    font-family: 'Computerfont';
-    src: url(../fonts/Computerfont.ttf);
-}
-
-@font-face {
-    font-family: 'Mushroom';
-    src: url(../fonts/Mushroomfont2.ttf);
-}
-
-/*
     layout
 */
 
@@ -108,11 +94,23 @@ body {
 }
 
 h1 {
-    font-family: 'Computerfont', sans-serif;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; 
+    font-style: bold; 
+    font-variant: normal; 
+    line-height: 13px;
     font-size: 24px;
-    color: black;
+    color: #e5e5e5;
     float: right;
     margin: 25px 0 0 auto;
+}
+
+h2 { 
+    font-family: 'Acme', sans-serif;
+    /* font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;  */
+    font-size: 13px; 
+    line-height: 12px; 
+    margin: 0;
+    padding: 0;
 }
 
 @media only all and (max-width: 600px) {
@@ -134,9 +132,16 @@ h1 {
     justify-content: space-between;
 }
 
+@media only all and (max-width: 600px) {
+    #projects {
+        width: 400px;
+        max-width: 100%;
+    }
+}
+
 .project {
     width: 46%;
-    padding: 10px 2% 20px;
+    padding: 10px 2% 10px;
 }
 
 .project-img {
@@ -147,21 +152,9 @@ h1 {
 }
 
 .project-details {
-    width: 45%;
-    padding: 0px 2.5% 20px;
+    width: 46%;
+    padding: 0px 2% 20px;
     cursor: pointer;
-}
-
-h2 {
-    font-family: 'Mushroom', sans-serif;
-    font-size: 14px;
-}
-
-@media only all and (max-width: 600px) {
-    #projects {
-        width: 400px;
-        max-width: 100%;
-    }
 }
 
 img:hover {
