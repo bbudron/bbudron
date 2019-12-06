@@ -154,7 +154,7 @@ h2 {
 .project-details {
     width: 46%;
     padding: 0px 2% 20px;
-    cursor: pointer;
+    cursor: default;
 }
 
 img:hover {
